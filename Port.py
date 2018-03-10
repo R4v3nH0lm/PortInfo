@@ -29,7 +29,7 @@ def ScreenScrape(port):
 
 def Args():
 	parser = argparse.ArgumentParser(
-		description=" ",
+		description="Simple python script to look up port numbers from speedguide.net",
 		epilog="""
 		NOTE: The following pre-requisites need to be in place before this script will work.
 		1.) A valid TCP or UDP port number to be provided. 
