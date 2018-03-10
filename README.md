@@ -1,3 +1,4 @@
+https://travis-ci.org/R4v3nH0lm/PortInfo.svg?branch=master
 # PortInfo
 Simple python script that scrapes Speedguide.com for port information. Will spit out all of the returned table entries in this format:
 [Port Number]
