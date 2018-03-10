@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
 ###############################################################################
 # Import library's
 import urllib2
@@ -22,7 +23,7 @@ def ScreenScrape(port):
 	response = urllib2.urlopen(req)
 	the_page = response.read()
 	#Process the page w/BS4
-	soup = BeautifulSoup(the_page)
+	soup = BeautifulSoup(the_page, "lxml")
 	port_data = soup.find_all("table", {"class": "port"})
 	for item in port_data:
 		print item.text
