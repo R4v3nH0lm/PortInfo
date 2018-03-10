@@ -3,6 +3,7 @@
 # Import library's
 import urllib2
 from bs4 import BeautifulSoup
+import argparse
 
 ###############################################################################
 # Global Variables
@@ -11,10 +12,11 @@ port = input('Port Number? ')
 ###############################################################################
 # Scripted Actions
 
-#Commented out line that can be uncommented if manual testing needs to be done.
-#port = 162
 
-def main():
+# Commented out line that can be uncommented if manual testing needs to be done.
+# port = 162
+
+def ScreenScrape():
 	url = "http://www.speedguide.net/port.php?port="+str(port)
 	#Get the page
 	req = urllib2.Request(url)
@@ -24,7 +26,16 @@ def main():
 	soup = BeautifulSoup(the_page)
 	port_data = soup.find_all("table", {"class": "port"})
 	for item in port_data:
-	    print item.text
+		print item.text
+
+
+
+def Args():
+	pass
+
+def main():
+	args = Args()
+	ScreenScrape(args)
 
 
 if __name__ == '__main__':
