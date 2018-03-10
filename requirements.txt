@@ -1,2 +1,3 @@
 urllib3
 bs4
+raven == 6.6.0
