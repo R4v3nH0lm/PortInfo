@@ -7,7 +7,6 @@ import argparse
 
 ###############################################################################
 # Global Variables
-port = input('Port Number? ')
 
 ###############################################################################
 # Scripted Actions
@@ -16,7 +15,7 @@ port = input('Port Number? ')
 # Commented out line that can be uncommented if manual testing needs to be done.
 # port = 162
 
-def ScreenScrape():
+def ScreenScrape(port):
 	url = "http://www.speedguide.net/port.php?port="+str(port)
 	#Get the page
 	req = urllib2.Request(url)
@@ -28,14 +27,25 @@ def ScreenScrape():
 	for item in port_data:
 		print item.text
 
-
-
 def Args():
-	pass
+	parser = argparse.ArgumentParser(
+		description=" ",
+		epilog="""
+		NOTE: The following pre-requisites need to be in place before this script will work.
+		1.) A valid TCP or UDP port number to be provided. 
+		""",
+		formatter_class=argparse.RawDescriptionHelpFormatter
+	)
+	parser.add_argument(
+		'-p', '--port',
+		help='Input which port numner will be looked up',
+		required=True)
+	args = parser.parse_args()
+	return args
 
 def main():
 	args = Args()
-	ScreenScrape(args)
+	ScreenScrape(args.port)
 
 
 if __name__ == '__main__':
